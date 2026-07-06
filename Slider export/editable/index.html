@@ -31,7 +31,7 @@
 </svg>
 
 <div
-  style="--rot-dur: {{ rotDurStyle }}; position:relative; width:100%; height:100%; min-height:420px; overflow:hidden; font-family:'Inter',sans-serif; touch-action:pan-y; box-sizing:border-box;
+  style="--rot-dur: {{ rotDurStyle }}; position:relative; width:100%; height:100%; min-height:420px; overflow:hidden; font-family:'Inter',sans-serif; touch-action:pan-y; box-sizing:border-box; padding: clamp(20px, 6vh, 64px) 0 clamp(56px, 9vh, 84px);
   background: transparent;"
   onTouchStart="{{ onTouchStart }}"
   onTouchEnd="{{ onTouchEnd }}"
@@ -39,17 +39,18 @@
 
   <div style="{{ trackStyle }}">
     <sc-for list="{{ slides }}" as="slide" hint-placeholder-count="3">
-      <div style="position:relative; width:100vw; height:100%; flex:0 0 100vw; overflow:hidden; display:grid; place-items:center;">
+      <div style="position:relative; width:100%; height:100%; flex:0 0 100%; overflow:hidden;">
+      <div style="{{ slide.wrapperStyle }}">
 
-        <div style="grid-area:1/1; width:100vw; height:100%; display:flex; align-items:center; overflow:hidden; pointer-events:none; z-index:1;">
+        <div style="grid-area:1/1; width:100%; height:100%; display:flex; align-items:center; overflow:hidden; pointer-events:none; z-index:1;">
           <div style="display:flex; width:max-content; animation: blobMarquee var(--rot-dur2, 9s) linear infinite;">
-            <span style="font-family:'Doto', sans-serif; font-weight:700; font-variation-settings:'wght' 700; font-size:clamp(90px, 21vw, 260px); line-height:0.86; color:{{ slide.displayColor }}; white-space:nowrap; user-select:none; padding-right:0.3em; transition: color 0.4s ease;">{{ slide.displayText }}</span>
-            <span style="font-family:'Doto', sans-serif; font-weight:700; font-variation-settings:'wght' 700; font-size:clamp(90px, 21vw, 260px); line-height:0.86; color:{{ slide.displayColor }}; white-space:nowrap; user-select:none; padding-right:0.3em; transition: color 0.4s ease;">{{ slide.displayText }}</span>
-            <span style="font-family:'Doto', sans-serif; font-weight:700; font-variation-settings:'wght' 700; font-size:clamp(90px, 21vw, 260px); line-height:0.86; color:{{ slide.displayColor }}; white-space:nowrap; user-select:none; padding-right:0.3em; transition: color 0.4s ease;">{{ slide.displayText }}</span>
+            <span style="font-family:'Doto', sans-serif; font-weight:700; font-variation-settings:'wght' 700; font-size:clamp(90px, 21vw, 260px); line-height:0.86; color:{{ slide.displayColor }}; white-space:nowrap; user-select:none; padding:0.05em 0.3em 0.05em 0; background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)) padding-box; box-decoration-break: clone; -webkit-box-decoration-break: clone; transition: color 0.4s ease;">{{ slide.displayText }}</span>
+            <span style="font-family:'Doto', sans-serif; font-weight:700; font-variation-settings:'wght' 700; font-size:clamp(90px, 21vw, 260px); line-height:0.86; color:{{ slide.displayColor }}; white-space:nowrap; user-select:none; padding:0.05em 0.3em 0.05em 0; background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)) padding-box; box-decoration-break: clone; -webkit-box-decoration-break: clone; transition: color 0.4s ease;">{{ slide.displayText }}</span>
+            <span style="font-family:'Doto', sans-serif; font-weight:700; font-variation-settings:'wght' 700; font-size:clamp(90px, 21vw, 260px); line-height:0.86; color:{{ slide.displayColor }}; white-space:nowrap; user-select:none; padding:0.05em 0.3em 0.05em 0; background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)) padding-box; box-decoration-break: clone; -webkit-box-decoration-break: clone; transition: color 0.4s ease;">{{ slide.displayText }}</span>
           </div>
         </div>
 
-        <div style="grid-area:1/1; z-index:2; width:min(90vw, 640px); height:100%; max-height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: clamp(6px, 2.5vh, 28px) 0; box-sizing:border-box; overflow:hidden;">
+        <div style="grid-area:1/1; z-index:2; width:min(90%, 640px); height:100%; max-height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: clamp(6px, 2.5vh, 28px) 0; box-sizing:border-box; overflow:hidden;">
 
           <div style="position:relative; width:100%; flex:1 1 auto; min-height:0; display:flex; align-items:center; justify-content:center;">
             <div onClick="{{ onPhotoClick }}" style="position:relative; width:min(60vw, 52vh, 420px); aspect-ratio:1; cursor:pointer; flex:none; transition: transform 0.3s ease;" style-hover="transform:scale(1.05) !important;">
@@ -68,25 +69,26 @@
             </div>
           </div>
 
-          <div style="width:100%; text-align:center; margin-top:clamp(18px, 3vh, 32px); display:flex; flex-direction:column; align-items:center;">
-            <a href="{{ slide.linkedin }}" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; cursor:pointer;" style-hover="text-decoration:underline !important; text-underline-offset:4px;">
+          <div style="width:100%; max-width:520px; text-align:center; margin-top:clamp(20px, 3.5vh, 36px); display:flex; flex-direction:column; align-items:center; gap:0; box-sizing:border-box;">
+            <a href="{{ slide.linkedin }}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; cursor:pointer; background:#ffffff; padding:6px 14px;" style-hover="text-decoration:underline !important; text-underline-offset:4px;">
               <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex:none;"><rect x="1" y="1" width="22" height="22" rx="5" style="fill:#1b2340; transition:fill 0.2s ease;" style-hover="fill:#c85a42 !important;"></rect><rect x="5.5" y="9.5" width="3" height="9" fill="#ffffff"></rect><circle cx="7" cy="6" r="1.9" fill="#ffffff"></circle><path d="M12 9.5H15V11.1C15.5 10.2 16.7 9.2 18.4 9.2C21.2 9.2 22 10.7 22 13.3V18.5H19V13.9C19 12.5 18.5 11.6 17.3 11.6C16.1 11.6 15 12.4 15 13.9V18.5H12V9.5Z" fill="#ffffff"></path></svg>
-              <div style="font-family:'Azeret Mono', monospace; font-weight:900; font-size:clamp(20px, 2.4vw, 28px); color:#1b2340; letter-spacing:-0.01em; transition: color 0.2s ease;" style-hover="color:#c85a42 !important;">{{ slide.name }}</div>
+              <div style="font-family:'Azeret Mono', monospace; font-weight:900; font-size:clamp(20px, 2.4vw, 28px); color:#1b2340; letter-spacing:0.01em; text-transform:uppercase; transition: color 0.2s ease;" style-hover="color:#c85a42 !important;">{{ slide.name }}</div>
             </a>
-            <div style="font-size:clamp(16px, 2vw, 23px); font-weight:500; color:#33415c; margin-top:6px;">{{ slide.title }}</div>
-            <div style="font-size:clamp(13px, 1.4vw, 16px); font-weight:400; color:#6a7284; margin-top:4px;">{{ slide.subtitle }}</div>
+            <div style="font-size:clamp(16px, 2vw, 23px); font-weight:500; color:#33415c; background:#ffffff; padding:2px 14px;">{{ slide.title }}</div>
+            <div style="font-size:clamp(13px, 1.4vw, 16px); font-weight:400; color:#6a7284; background:#ffffff; padding:2px 14px;">{{ slide.subtitle }}</div>
           </div>
 
         </div>
 
       </div>
+      </div>
     </sc-for>
   </div>
 
-  <button onClick="{{ goPrev }}" aria-label="Previous" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:#1b2340; color:#ffffff; font-size:20px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5; box-shadow:0 4px 12px rgba(20,20,40,0.25); transition: background 0.2s ease, transform 0.2s ease;" style-hover="background:#c85a42; transform:translateY(-50%) scale(1.08);">‹</button>
-  <button onClick="{{ goNext }}" aria-label="Next" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:#1b2340; color:#ffffff; font-size:20px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5; box-shadow:0 4px 12px rgba(20,20,40,0.25); transition: background 0.2s ease, transform 0.2s ease;" style-hover="background:#c85a42; transform:translateY(-50%) scale(1.08);">›</button>
+  <button onClick="{{ goPrev }}" aria-label="Previous" style="position:absolute; left:clamp(8px, 2.5vw, 20px); top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:#ffffff; color:#111318; font-size:20px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5; box-shadow:0 4px 12px rgba(20,20,40,0.18); transition: color 0.2s ease, transform 0.2s ease;" style-hover="color:#c85a42; transform:translateY(-50%) scale(1.08);">‹</button>
+  <button onClick="{{ goNext }}" aria-label="Next" style="position:absolute; right:clamp(8px, 2.5vw, 20px); top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:#ffffff; color:#111318; font-size:20px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5; box-shadow:0 4px 12px rgba(20,20,40,0.18); transition: color 0.2s ease, transform 0.2s ease;" style-hover="color:#c85a42; transform:translateY(-50%) scale(1.08);">›</button>
 
-  <div style="position:absolute; bottom:18px; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:10px; z-index:5;">
+  <div style="position:absolute; bottom:clamp(16px, 3vh, 28px); left:0; right:0; display:flex; align-items:center; justify-content:center; gap:10px; z-index:5;">
     <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="3">
       <button onClick="{{ dot.onClick }}" aria-label="Go to slide" style="{{ dot.style }}" style-hover="background:#c85a42;"></button>
     </sc-for>
@@ -95,7 +97,7 @@
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 390, &quot;height&quot;: 700}, &quot;rotationDuration&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 4.7, &quot;min&quot;: 2, &quot;max&quot;: 16, &quot;step&quot;: 0.1, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Motion&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 390, &quot;height&quot;: 700}, &quot;rotationDuration&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 4.7, &quot;min&quot;: 2, &quot;max&quot;: 16, &quot;step&quot;: 0.1, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Motion&quot;}, &quot;transitionStyle&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;slideFade&quot;, &quot;options&quot;: [&quot;depth&quot;, &quot;slideFade&quot;, &quot;cube&quot;, &quot;stack&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Motion&quot;}}">
 class Component extends DCLogic {
   state = { index: 0, touchStartX: null, burstId: 0, ctaActive: false };
 
@@ -154,19 +156,48 @@ class Component extends DCLogic {
     this.setState({ touchStartX: null });
   };
 
+  buildWrapperStyle(variant, i, index) {
+    const dist = Math.abs(i - index);
+    const isBefore = i < index;
+    const base = `position:relative; width:100%; height:100%; display:grid; place-items:center; transition: transform 0.65s cubic-bezier(0.34,1.1,0.4,1), opacity 0.55s ease, filter 0.55s ease;`;
+
+    if (variant === 'slideFade') {
+      const opacity = dist === 0 ? 1 : dist === 1 ? 0.15 : 0.05;
+      return `${base} transform: scale(1); opacity:${opacity};`;
+    }
+    if (variant === 'cube') {
+      const rotateY = dist === 0 ? 0 : (isBefore ? -68 : 68);
+      const opacity = dist === 0 ? 1 : 0.35;
+      const origin = isBefore ? 'right center' : 'left center';
+      return `${base} transform-style:preserve-3d; transform-origin:${origin}; transform: rotateY(${rotateY}deg); opacity:${opacity};`;
+    }
+    if (variant === 'stack') {
+      const scale = dist === 0 ? 1 : dist === 1 ? 0.82 : 0.7;
+      const ty = dist === 0 ? 0 : (isBefore ? 16 : -16);
+      const opacity = dist === 0 ? 1 : dist === 1 ? 0.55 : 0.25;
+      return `${base} transform: scale(${scale}) translateY(${ty}px); opacity:${opacity}; filter: drop-shadow(0 12px 20px rgba(20,20,40,0.2));`;
+    }
+    // default: 'depth'
+    const scale = dist === 0 ? 1 : dist === 1 ? 0.86 : 0.74;
+    const opacity = dist === 0 ? 1 : dist === 1 ? 0.35 : 0.12;
+    return `${base} transform: scale(${scale}); opacity:${opacity};`;
+  }
+
   renderVals() {
     const rotDur = this.props.rotationDuration ?? 4.7;
     const index = this.state.index;
     const ctaActive = this.state.ctaActive;
+    const variant = this.props.transitionStyle ?? 'depth';
     const slidesWithDisplay = this.slides.map((s, i) => ({
       ...s,
       displayText: (ctaActive && i === index) ? 'Agenda tu sesión' : s.name,
       displayColor: (ctaActive && i === index) ? '#c85a42' : '#111318',
+      wrapperStyle: this.buildWrapperStyle(variant, i, index),
     }));
     return {
       slides: slidesWithDisplay,
       rotDurStyle: `${rotDur}s`,
-      trackStyle: `display:flex; width:100%; height:100%; transform: translateX(-${index * 100}%); transition: transform 0.6s cubic-bezier(0.65,0,0.35,1);`,
+      trackStyle: `display:flex; width:100%; height:100%; transform: translateX(-${index * 100}%); transition: transform 0.6s cubic-bezier(0.65,0,0.35,1); perspective: ${variant === 'cube' ? '1400px' : 'none'};`,
       burstId: this.state.burstId,
       onPhotoClick: this.onPhotoClick,
       goPrev: () => this.goTo(index - 1),
