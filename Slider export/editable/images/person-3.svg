@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+    <defs>
+      <pattern id="stripes" width="28" height="28" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+        <rect width="28" height="28" fill="#1a1a1a"></rect>
+        <rect width="14" height="28" fill="#232323"></rect>
+      </pattern>
+    </defs>
+    <rect width="800" height="1000" fill="url(#stripes)"></rect>
+    <text x="400" y="500" text-anchor="middle" font-family="monospace" font-size="22" fill="#888" letter-spacing="1">PHOTO PLACEHOLDER · SLIDE 3</text>
+  </svg>

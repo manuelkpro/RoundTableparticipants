@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Doto:wght@700&family=Azeret+Mono:wght@900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; }
+    a { color: #33415c; }
+    a:hover { color: #1b2340; }
+    @keyframes blobMarquee { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+    @keyframes blobPlusSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes blobPlusSpinCounter { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+    @keyframes plusBurst { 0% { transform: scale(1); } 30% { transform: scale(1.18); } 55% { transform: scale(0.92); } 78% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    @keyframes plusRipple { 0% { transform: scale(0.75); opacity: 0.55; } 100% { transform: scale(2); opacity: 0; } }
+  </style>
+</helmet>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <clipPath id="blobPlusClipShape" clipPathUnits="objectBoundingBox">
+      <path d="M0.64571 0C0.69621 0 0.73714 0.04093 0.73714 0.09143V0.20571C0.73714 0.23727 0.76273 0.26286 0.79429 0.26286H0.90857C0.95907 0.26286 1 0.30379 1 0.35429V0.65143C1 0.70193 0.95907 0.74286 0.90857 0.74286H0.79429C0.76273 0.74286 0.73714 0.76844 0.73714 0.8V0.90857C0.73714 0.95907 0.69621 1 0.64571 1H0.34857C0.29808 1 0.25714 0.95907 0.25714 0.90857V0.8C0.25714 0.76844 0.23156 0.74286 0.2 0.74286H0.09143C0.04093 0.74286 0 0.70193 0 0.65143V0.35429C0 0.30379 0.04093 0.26286 0.09143 0.26286H0.2C0.23156 0.26286 0.25714 0.23727 0.25714 0.20571V0.09143C0.25714 0.04093 0.29808 0 0.34857 0H0.64571Z"></path>
+    </clipPath>
+  </defs>
+</svg>
+
+<div
+  style="--rot-dur: {{ rotDurStyle }}; --pixel-cursor: url(&quot;data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='11'%20height='15'%20viewBox='0%200%2011%2015'%20shape-rendering='crispEdges'><g%20fill='%23ffffff'%20stroke='%23ffffff'%20stroke-width='0.6'><rect%20x='0'%20y='0'%20width='1'%20height='1'/><rect%20x='0'%20y='1'%20width='1'%20height='1'/><rect%20x='1'%20y='1'%20width='1'%20height='1'/><rect%20x='0'%20y='2'%20width='1'%20height='1'/><rect%20x='2'%20y='2'%20width='1'%20height='1'/><rect%20x='0'%20y='3'%20width='1'%20height='1'/><rect%20x='3'%20y='3'%20width='1'%20height='1'/><rect%20x='0'%20y='4'%20width='1'%20height='1'/><rect%20x='4'%20y='4'%20width='1'%20height='1'/><rect%20x='0'%20y='5'%20width='1'%20height='1'/><rect%20x='5'%20y='5'%20width='1'%20height='1'/><rect%20x='0'%20y='6'%20width='1'%20height='1'/><rect%20x='6'%20y='6'%20width='1'%20height='1'/><rect%20x='0'%20y='7'%20width='1'%20height='1'/><rect%20x='7'%20y='7'%20width='1'%20height='1'/><rect%20x='0'%20y='8'%20width='1'%20height='1'/><rect%20x='8'%20y='8'%20width='1'%20height='1'/><rect%20x='0'%20y='9'%20width='1'%20height='1'/><rect%20x='5'%20y='9'%20width='1'%20height='1'/><rect%20x='6'%20y='9'%20width='1'%20height='1'/><rect%20x='7'%20y='9'%20width='1'%20height='1'/><rect%20x='8'%20y='9'%20width='1'%20height='1'/><rect%20x='0'%20y='10'%20width='1'%20height='1'/><rect%20x='3'%20y='10'%20width='1'%20height='1'/><rect%20x='4'%20y='10'%20width='1'%20height='1'/><rect%20x='6'%20y='10'%20width='1'%20height='1'/><rect%20x='0'%20y='11'%20width='1'%20height='1'/><rect%20x='2'%20y='11'%20width='1'%20height='1'/><rect%20x='6'%20y='11'%20width='1'%20height='1'/><rect%20x='0'%20y='12'%20width='1'%20height='1'/><rect%20x='1'%20y='12'%20width='1'%20height='1'/><rect%20x='6'%20y='12'%20width='1'%20height='1'/><rect%20x='0'%20y='13'%20width='1'%20height='1'/><rect%20x='6'%20y='13'%20width='1'%20height='1'/><rect%20x='6'%20y='14'%20width='1'%20height='1'/><rect%20x='7'%20y='14'%20width='1'%20height='1'/></g><g%20fill='%23161a24'><rect%20x='0'%20y='0'%20width='1'%20height='1'/><rect%20x='0'%20y='1'%20width='1'%20height='1'/><rect%20x='1'%20y='1'%20width='1'%20height='1'/><rect%20x='0'%20y='2'%20width='1'%20height='1'/><rect%20x='2'%20y='2'%20width='1'%20height='1'/><rect%20x='0'%20y='3'%20width='1'%20height='1'/><rect%20x='3'%20y='3'%20width='1'%20height='1'/><rect%20x='0'%20y='4'%20width='1'%20height='1'/><rect%20x='4'%20y='4'%20width='1'%20height='1'/><rect%20x='0'%20y='5'%20width='1'%20height='1'/><rect%20x='5'%20y='5'%20width='1'%20height='1'/><rect%20x='0'%20y='6'%20width='1'%20height='1'/><rect%20x='6'%20y='6'%20width='1'%20height='1'/><rect%20x='0'%20y='7'%20width='1'%20height='1'/><rect%20x='7'%20y='7'%20width='1'%20height='1'/><rect%20x='0'%20y='8'%20width='1'%20height='1'/><rect%20x='8'%20y='8'%20width='1'%20height='1'/><rect%20x='0'%20y='9'%20width='1'%20height='1'/><rect%20x='5'%20y='9'%20width='1'%20height='1'/><rect%20x='6'%20y='9'%20width='1'%20height='1'/><rect%20x='7'%20y='9'%20width='1'%20height='1'/><rect%20x='8'%20y='9'%20width='1'%20height='1'/><rect%20x='0'%20y='10'%20width='1'%20height='1'/><rect%20x='3'%20y='10'%20width='1'%20height='1'/><rect%20x='4'%20y='10'%20width='1'%20height='1'/><rect%20x='6'%20y='10'%20width='1'%20height='1'/><rect%20x='0'%20y='11'%20width='1'%20height='1'/><rect%20x='2'%20y='11'%20width='1'%20height='1'/><rect%20x='6'%20y='11'%20width='1'%20height='1'/><rect%20x='0'%20y='12'%20width='1'%20height='1'/><rect%20x='1'%20y='12'%20width='1'%20height='1'/><rect%20x='6'%20y='12'%20width='1'%20height='1'/><rect%20x='0'%20y='13'%20width='1'%20height='1'/><rect%20x='6'%20y='13'%20width='1'%20height='1'/><rect%20x='6'%20y='14'%20width='1'%20height='1'/><rect%20x='7'%20y='14'%20width='1'%20height='1'/></g></svg>&quot;) 0 0, auto; position:relative; width:100%; height:100vh; min-height:480px; overflow:hidden; font-family:'Inter',sans-serif; touch-action:pan-y; cursor: var(--pixel-cursor);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.6) 100%),
+    linear-gradient(120deg, #c7cee0 0%, #cbd2e2 35%, #ddd6de 65%, #f2dcdb 100%);"
+  onTouchStart="{{ onTouchStart }}"
+  onTouchEnd="{{ onTouchEnd }}"
+>
+
+  <div style="{{ trackStyle }}">
+    <sc-for list="{{ slides }}" as="slide" hint-placeholder-count="3">
+      <div style="position:relative; width:100vw; height:100%; flex:0 0 100vw; overflow:hidden; display:grid; place-items:center;">
+
+        <div style="grid-area:1/1; width:100vw; height:100%; display:flex; align-items:center; overflow:hidden; pointer-events:none; z-index:1;">
+          <div style="display:flex; width:max-content; animation: blobMarquee var(--rot-dur2, 9s) linear infinite;">
+            <span style="font-family:'Doto', sans-serif; font-weight:700; font-variation-settings:'wght' 700; font-size:clamp(90px, 21vw, 260px); line-height:0.86; color:{{ slide.displayColor }}; white-space:nowrap; user-select:none; padding-right:0.3em; transition: color 0.4s ease;">{{ slide.displayText }}</span>
+            <span style="font-family:'Doto', sans-serif; font-weight:700; font-variation-settings:'wght' 700; font-size:clamp(90px, 21vw, 260px); line-height:0.86; color:{{ slide.displayColor }}; white-space:nowrap; user-select:none; padding-right:0.3em; transition: color 0.4s ease;">{{ slide.displayText }}</span>
+            <span style="font-family:'Doto', sans-serif; font-weight:700; font-variation-settings:'wght' 700; font-size:clamp(90px, 21vw, 260px); line-height:0.86; color:{{ slide.displayColor }}; white-space:nowrap; user-select:none; padding-right:0.3em; transition: color 0.4s ease;">{{ slide.displayText }}</span>
+          </div>
+        </div>
+
+        <div style="grid-area:1/1; z-index:2; width:min(90vw, 640px); height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 6vh 0;">
+
+          <div style="position:relative; width:100%; aspect-ratio:1.7; display:flex; align-items:center; justify-content:center;">
+            <div onClick="{{ onPhotoClick }}" style="position:relative; width:min(66vw, 68%); aspect-ratio:1; cursor: var(--pixel-cursor);">
+
+              <sc-if value="{{ burstId }}" hint-placeholder-val="{{ false }}">
+                <div key="{{ burstId }}" style="position:absolute; inset:0; clip-path:url(#blobPlusClipShape); background:rgba(124,133,185,0.5); animation: plusRipple 0.9s ease-out forwards; pointer-events:none;"></div>
+                <div key="{{ burstId }}b" style="position:absolute; inset:0; clip-path:url(#blobPlusClipShape); background:rgba(124,133,185,0.35); animation: plusRipple 0.9s ease-out 0.12s forwards; pointer-events:none;"></div>
+              </sc-if>
+
+              <div key="{{ burstId }}" style="position:absolute; inset:0; animation: plusBurst 0.7s cubic-bezier(0.34,1.56,0.64,1);">
+                <div style="position:relative; width:100%; height:100%; clip-path:url(#blobPlusClipShape); overflow:hidden; animation: blobPlusSpin var(--rot-dur) linear infinite; filter: drop-shadow(0 18px 26px rgba(20,20,40,0.32)) drop-shadow(0 4px 8px rgba(20,20,40,0.18));">
+                  <img ref="{{ slide.plusRef }}" alt="{{ slide.name }}" style="position:absolute; top:-30%; left:-30%; width:160%; height:160%; object-fit:cover; animation: blobPlusSpinCounter var(--rot-dur) linear infinite;" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div style="width:100%; text-align:center; margin-top:clamp(18px, 3vh, 32px); display:flex; flex-direction:column; align-items:center;">
+            <a href="{{ slide.linkedin }}" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; cursor: var(--pixel-cursor);" style-hover="text-decoration:underline; text-underline-offset:4px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex:none;"><rect x="1" y="1" width="22" height="22" rx="5" fill="#1b2340"></rect><rect x="5.5" y="9.5" width="3" height="9" fill="#ffffff"></rect><circle cx="7" cy="6" r="1.9" fill="#ffffff"></circle><path d="M12 9.5H15V11.1C15.5 10.2 16.7 9.2 18.4 9.2C21.2 9.2 22 10.7 22 13.3V18.5H19V13.9C19 12.5 18.5 11.6 17.3 11.6C16.1 11.6 15 12.4 15 13.9V18.5H12V9.5Z" fill="#ffffff"></path></svg>
+              <div style="font-family:'Azeret Mono', monospace; font-weight:900; font-size:clamp(20px, 2.4vw, 28px); color:#1b2340; letter-spacing:-0.01em; transition: color 0.2s ease;" style-hover="color:#c85a42;">{{ slide.name }}</div>
+            </a>
+            <div style="font-size:clamp(16px, 2vw, 23px); font-weight:500; color:#33415c; margin-top:6px;">{{ slide.title }}</div>
+            <div style="font-size:clamp(13px, 1.4vw, 16px); font-weight:400; color:#6a7284; margin-top:4px;">{{ slide.subtitle }}</div>
+          </div>
+
+        </div>
+
+      </div>
+    </sc-for>
+  </div>
+
+  <button onClick="{{ goPrev }}" aria-label="Previous" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:#1b2340; color:#ffffff; font-size:20px; display:flex; align-items:center; justify-content:center; cursor: var(--pixel-cursor); z-index:5; box-shadow:0 4px 12px rgba(20,20,40,0.25);">‹</button>
+  <button onClick="{{ goNext }}" aria-label="Next" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:#1b2340; color:#ffffff; font-size:20px; display:flex; align-items:center; justify-content:center; cursor: var(--pixel-cursor); z-index:5; box-shadow:0 4px 12px rgba(20,20,40,0.25);">›</button>
+
+  <div style="position:absolute; bottom:18px; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:10px; z-index:5;">
+    <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="3">
+      <button onClick="{{ dot.onClick }}" aria-label="Go to slide" style="{{ dot.style }}"></button>
+    </sc-for>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 390, &quot;height&quot;: 700}, &quot;rotationDuration&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 4.7, &quot;min&quot;: 2, &quot;max&quot;: 16, &quot;step&quot;: 0.1, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Motion&quot;}}">
+class Component extends DCLogic {
+  state = { index: 0, touchStartX: null, burstId: 0, ctaActive: false };
+
+  // ============================================================
+  // EDIT ME — one entry per slide. To customize:
+  //  1. name / title / subtitle: plain text, shown under the photo.
+  //  2. img: path to a photo file. Drop your own image into the
+  //     "images" folder (next to this HTML file) and point to it
+  //     here, e.g. img: 'images/your-photo.jpg'
+  //  3. linkedin: full profile URL, or '#' to disable the link.
+  //  4. Add or remove whole { ... } entries to change the slide count.
+  // ============================================================
+  slides = [
+    { name: 'Manuel S Escobedo', title: 'AI Enterprise Products and native AI products', subtitle: 'Senior Product Designer with +10 years of experience', img: 'images/person-1.jpg', linkedin: 'https://www.linkedin.com/in/manuelkpro/', plusRef: React.createRef() },
+    { name: 'Ava R Kingston', title: 'Design Systems and cross-platform UI', subtitle: 'Staff Product Designer with +8 years of experience', img: 'images/person-2.svg', linkedin: '#', plusRef: React.createRef() },
+    { name: 'Julian D Mercer', title: 'Growth and onboarding experiences', subtitle: 'Lead Product Designer with +6 years of experience', img: 'images/person-3.svg', linkedin: '#', plusRef: React.createRef() },
+  ];
+  // ============================================================
+  // END EDIT ME
+  // ============================================================
+
+  applyImages() {
+    this.slides.forEach((s) => {
+      if (s.plusRef.current && s.plusRef.current.src.indexOf(s.img) === -1) s.plusRef.current.src = s.img;
+    });
+  }
+
+  componentDidMount() {
+    this.applyImages();
+  }
+
+  componentDidUpdate() {
+    this.applyImages();
+  }
+
+  goTo(i) {
+    const n = this.slides.length;
+    this.setState({ index: ((i % n) + n) % n, ctaActive: false });
+  }
+
+  onPhotoClick = () => {
+    this.setState((s) => ({ burstId: s.burstId + 1, ctaActive: !s.ctaActive }));
+  };
+
+  onTouchStart = (e) => {
+    this.setState({ touchStartX: e.touches[0].clientX });
+  };
+
+  onTouchEnd = (e) => {
+    const startX = this.state.touchStartX;
+    if (startX == null) return;
+    const endX = e.changedTouches[0].clientX;
+    const dx = endX - startX;
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) this.goTo(this.state.index + 1);
+      else this.goTo(this.state.index - 1);
+    }
+    this.setState({ touchStartX: null });
+  };
+
+  renderVals() {
+    const rotDur = this.props.rotationDuration ?? 4.7;
+    const index = this.state.index;
+    const ctaActive = this.state.ctaActive;
+    const slidesWithDisplay = this.slides.map((s, i) => ({
+      ...s,
+      displayText: (ctaActive && i === index) ? 'Agenda tu session' : s.name,
+      displayColor: (ctaActive && i === index) ? '#c85a42' : '#111318',
+    }));
+    return {
+      slides: slidesWithDisplay,
+      rotDurStyle: `${rotDur}s`,
+      trackStyle: `display:flex; width:100%; height:100%; transform: translateX(-${index * 100}%); transition: transform 0.6s cubic-bezier(0.65,0,0.35,1);`,
+      burstId: this.state.burstId,
+      onPhotoClick: this.onPhotoClick,
+      goPrev: () => this.goTo(index - 1),
+      goNext: () => this.goTo(index + 1),
+      dots: this.slides.map((_, i) => ({
+        onClick: () => this.goTo(i),
+        style: `width:9px; height:9px; padding:0; border-radius:50%; border:none; cursor: var(--pixel-cursor); background:${i === index ? '#1b2340' : 'rgba(27,35,64,0.3)'}; transition: background 0.25s;`,
+      })),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
