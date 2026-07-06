@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Doto:wght@700&family=Azeret+Mono:wght@900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; }
+    html, body { margin: 0; height: 100%; background: transparent; }
     a { color: #33415c; }
     a:hover { color: #1b2340; }
     @keyframes blobMarquee { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
@@ -31,10 +31,8 @@
 </svg>
 
 <div
-  style="--rot-dur: {{ rotDurStyle }}; --pixel-cursor: url(&quot;data:image/svg+xml,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='11'%20height='15'%20viewBox='0%200%2011%2015'%20shape-rendering='crispEdges'><g%20fill='%23ffffff'%20stroke='%23ffffff'%20stroke-width='0.6'><rect%20x='0'%20y='0'%20width='1'%20height='1'/><rect%20x='0'%20y='1'%20width='1'%20height='1'/><rect%20x='1'%20y='1'%20width='1'%20height='1'/><rect%20x='0'%20y='2'%20width='1'%20height='1'/><rect%20x='2'%20y='2'%20width='1'%20height='1'/><rect%20x='0'%20y='3'%20width='1'%20height='1'/><rect%20x='3'%20y='3'%20width='1'%20height='1'/><rect%20x='0'%20y='4'%20width='1'%20height='1'/><rect%20x='4'%20y='4'%20width='1'%20height='1'/><rect%20x='0'%20y='5'%20width='1'%20height='1'/><rect%20x='5'%20y='5'%20width='1'%20height='1'/><rect%20x='0'%20y='6'%20width='1'%20height='1'/><rect%20x='6'%20y='6'%20width='1'%20height='1'/><rect%20x='0'%20y='7'%20width='1'%20height='1'/><rect%20x='7'%20y='7'%20width='1'%20height='1'/><rect%20x='0'%20y='8'%20width='1'%20height='1'/><rect%20x='8'%20y='8'%20width='1'%20height='1'/><rect%20x='0'%20y='9'%20width='1'%20height='1'/><rect%20x='5'%20y='9'%20width='1'%20height='1'/><rect%20x='6'%20y='9'%20width='1'%20height='1'/><rect%20x='7'%20y='9'%20width='1'%20height='1'/><rect%20x='8'%20y='9'%20width='1'%20height='1'/><rect%20x='0'%20y='10'%20width='1'%20height='1'/><rect%20x='3'%20y='10'%20width='1'%20height='1'/><rect%20x='4'%20y='10'%20width='1'%20height='1'/><rect%20x='6'%20y='10'%20width='1'%20height='1'/><rect%20x='0'%20y='11'%20width='1'%20height='1'/><rect%20x='2'%20y='11'%20width='1'%20height='1'/><rect%20x='6'%20y='11'%20width='1'%20height='1'/><rect%20x='0'%20y='12'%20width='1'%20height='1'/><rect%20x='1'%20y='12'%20width='1'%20height='1'/><rect%20x='6'%20y='12'%20width='1'%20height='1'/><rect%20x='0'%20y='13'%20width='1'%20height='1'/><rect%20x='6'%20y='13'%20width='1'%20height='1'/><rect%20x='6'%20y='14'%20width='1'%20height='1'/><rect%20x='7'%20y='14'%20width='1'%20height='1'/></g><g%20fill='%23161a24'><rect%20x='0'%20y='0'%20width='1'%20height='1'/><rect%20x='0'%20y='1'%20width='1'%20height='1'/><rect%20x='1'%20y='1'%20width='1'%20height='1'/><rect%20x='0'%20y='2'%20width='1'%20height='1'/><rect%20x='2'%20y='2'%20width='1'%20height='1'/><rect%20x='0'%20y='3'%20width='1'%20height='1'/><rect%20x='3'%20y='3'%20width='1'%20height='1'/><rect%20x='0'%20y='4'%20width='1'%20height='1'/><rect%20x='4'%20y='4'%20width='1'%20height='1'/><rect%20x='0'%20y='5'%20width='1'%20height='1'/><rect%20x='5'%20y='5'%20width='1'%20height='1'/><rect%20x='0'%20y='6'%20width='1'%20height='1'/><rect%20x='6'%20y='6'%20width='1'%20height='1'/><rect%20x='0'%20y='7'%20width='1'%20height='1'/><rect%20x='7'%20y='7'%20width='1'%20height='1'/><rect%20x='0'%20y='8'%20width='1'%20height='1'/><rect%20x='8'%20y='8'%20width='1'%20height='1'/><rect%20x='0'%20y='9'%20width='1'%20height='1'/><rect%20x='5'%20y='9'%20width='1'%20height='1'/><rect%20x='6'%20y='9'%20width='1'%20height='1'/><rect%20x='7'%20y='9'%20width='1'%20height='1'/><rect%20x='8'%20y='9'%20width='1'%20height='1'/><rect%20x='0'%20y='10'%20width='1'%20height='1'/><rect%20x='3'%20y='10'%20width='1'%20height='1'/><rect%20x='4'%20y='10'%20width='1'%20height='1'/><rect%20x='6'%20y='10'%20width='1'%20height='1'/><rect%20x='0'%20y='11'%20width='1'%20height='1'/><rect%20x='2'%20y='11'%20width='1'%20height='1'/><rect%20x='6'%20y='11'%20width='1'%20height='1'/><rect%20x='0'%20y='12'%20width='1'%20height='1'/><rect%20x='1'%20y='12'%20width='1'%20height='1'/><rect%20x='6'%20y='12'%20width='1'%20height='1'/><rect%20x='0'%20y='13'%20width='1'%20height='1'/><rect%20x='6'%20y='13'%20width='1'%20height='1'/><rect%20x='6'%20y='14'%20width='1'%20height='1'/><rect%20x='7'%20y='14'%20width='1'%20height='1'/></g></svg>&quot;) 0 0, auto; position:relative; width:100%; height:100vh; min-height:480px; overflow:hidden; font-family:'Inter',sans-serif; touch-action:pan-y; cursor: var(--pixel-cursor);
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.6) 100%),
-    linear-gradient(120deg, #c7cee0 0%, #cbd2e2 35%, #ddd6de 65%, #f2dcdb 100%);"
+  style="--rot-dur: {{ rotDurStyle }}; position:relative; width:100%; height:100%; min-height:420px; overflow:hidden; font-family:'Inter',sans-serif; touch-action:pan-y; box-sizing:border-box;
+  background: transparent;"
   onTouchStart="{{ onTouchStart }}"
   onTouchEnd="{{ onTouchEnd }}"
 >
@@ -51,10 +49,10 @@
           </div>
         </div>
 
-        <div style="grid-area:1/1; z-index:2; width:min(90vw, 640px); height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 6vh 0;">
+        <div style="grid-area:1/1; z-index:2; width:min(90vw, 640px); height:100%; max-height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding: clamp(6px, 2.5vh, 28px) 0; box-sizing:border-box; overflow:hidden;">
 
-          <div style="position:relative; width:100%; aspect-ratio:1.7; display:flex; align-items:center; justify-content:center;">
-            <div onClick="{{ onPhotoClick }}" style="position:relative; width:min(66vw, 68%); aspect-ratio:1; cursor: var(--pixel-cursor);">
+          <div style="position:relative; width:100%; flex:1 1 auto; min-height:0; display:flex; align-items:center; justify-content:center;">
+            <div onClick="{{ onPhotoClick }}" style="position:relative; width:min(60vw, 52vh, 420px); aspect-ratio:1; cursor:pointer; flex:none; transition: transform 0.3s ease;" style-hover="transform:scale(1.05) !important;">
 
               <sc-if value="{{ burstId }}" hint-placeholder-val="{{ false }}">
                 <div key="{{ burstId }}" style="position:absolute; inset:0; clip-path:url(#blobPlusClipShape); background:rgba(124,133,185,0.5); animation: plusRipple 0.9s ease-out forwards; pointer-events:none;"></div>
@@ -71,9 +69,9 @@
           </div>
 
           <div style="width:100%; text-align:center; margin-top:clamp(18px, 3vh, 32px); display:flex; flex-direction:column; align-items:center;">
-            <a href="{{ slide.linkedin }}" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; cursor: var(--pixel-cursor);" style-hover="text-decoration:underline; text-underline-offset:4px;">
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex:none;"><rect x="1" y="1" width="22" height="22" rx="5" fill="#1b2340"></rect><rect x="5.5" y="9.5" width="3" height="9" fill="#ffffff"></rect><circle cx="7" cy="6" r="1.9" fill="#ffffff"></circle><path d="M12 9.5H15V11.1C15.5 10.2 16.7 9.2 18.4 9.2C21.2 9.2 22 10.7 22 13.3V18.5H19V13.9C19 12.5 18.5 11.6 17.3 11.6C16.1 11.6 15 12.4 15 13.9V18.5H12V9.5Z" fill="#ffffff"></path></svg>
-              <div style="font-family:'Azeret Mono', monospace; font-weight:900; font-size:clamp(20px, 2.4vw, 28px); color:#1b2340; letter-spacing:-0.01em; transition: color 0.2s ease;" style-hover="color:#c85a42;">{{ slide.name }}</div>
+            <a href="{{ slide.linkedin }}" target="_blank" rel="noopener noreferrer" style="display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; cursor:pointer;" style-hover="text-decoration:underline !important; text-underline-offset:4px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex:none;"><rect x="1" y="1" width="22" height="22" rx="5" style="fill:#1b2340; transition:fill 0.2s ease;" style-hover="fill:#c85a42 !important;"></rect><rect x="5.5" y="9.5" width="3" height="9" fill="#ffffff"></rect><circle cx="7" cy="6" r="1.9" fill="#ffffff"></circle><path d="M12 9.5H15V11.1C15.5 10.2 16.7 9.2 18.4 9.2C21.2 9.2 22 10.7 22 13.3V18.5H19V13.9C19 12.5 18.5 11.6 17.3 11.6C16.1 11.6 15 12.4 15 13.9V18.5H12V9.5Z" fill="#ffffff"></path></svg>
+              <div style="font-family:'Azeret Mono', monospace; font-weight:900; font-size:clamp(20px, 2.4vw, 28px); color:#1b2340; letter-spacing:-0.01em; transition: color 0.2s ease;" style-hover="color:#c85a42 !important;">{{ slide.name }}</div>
             </a>
             <div style="font-size:clamp(16px, 2vw, 23px); font-weight:500; color:#33415c; margin-top:6px;">{{ slide.title }}</div>
             <div style="font-size:clamp(13px, 1.4vw, 16px); font-weight:400; color:#6a7284; margin-top:4px;">{{ slide.subtitle }}</div>
@@ -85,12 +83,12 @@
     </sc-for>
   </div>
 
-  <button onClick="{{ goPrev }}" aria-label="Previous" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:#1b2340; color:#ffffff; font-size:20px; display:flex; align-items:center; justify-content:center; cursor: var(--pixel-cursor); z-index:5; box-shadow:0 4px 12px rgba(20,20,40,0.25);">‹</button>
-  <button onClick="{{ goNext }}" aria-label="Next" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:#1b2340; color:#ffffff; font-size:20px; display:flex; align-items:center; justify-content:center; cursor: var(--pixel-cursor); z-index:5; box-shadow:0 4px 12px rgba(20,20,40,0.25);">›</button>
+  <button onClick="{{ goPrev }}" aria-label="Previous" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:#1b2340; color:#ffffff; font-size:20px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5; box-shadow:0 4px 12px rgba(20,20,40,0.25); transition: background 0.2s ease, transform 0.2s ease;" style-hover="background:#c85a42; transform:translateY(-50%) scale(1.08);">‹</button>
+  <button onClick="{{ goNext }}" aria-label="Next" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:none; background:#1b2340; color:#ffffff; font-size:20px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:5; box-shadow:0 4px 12px rgba(20,20,40,0.25); transition: background 0.2s ease, transform 0.2s ease;" style-hover="background:#c85a42; transform:translateY(-50%) scale(1.08);">›</button>
 
   <div style="position:absolute; bottom:18px; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:10px; z-index:5;">
     <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="3">
-      <button onClick="{{ dot.onClick }}" aria-label="Go to slide" style="{{ dot.style }}"></button>
+      <button onClick="{{ dot.onClick }}" aria-label="Go to slide" style="{{ dot.style }}" style-hover="background:#c85a42;"></button>
     </sc-for>
   </div>
 
@@ -104,9 +102,7 @@ class Component extends DCLogic {
   // ============================================================
   // EDIT ME — one entry per slide. To customize:
   //  1. name / title / subtitle: plain text, shown under the photo.
-  //  2. img: path to a photo file. Drop your own image into the
-  //     "images" folder (next to this HTML file) and point to it
-  //     here, e.g. img: 'images/your-photo.jpg'
+  //  2. img: path to a photo file (drop new images into /assets).
   //  3. linkedin: full profile URL, or '#' to disable the link.
   //  4. Add or remove whole { ... } entries to change the slide count.
   // ============================================================
@@ -164,7 +160,7 @@ class Component extends DCLogic {
     const ctaActive = this.state.ctaActive;
     const slidesWithDisplay = this.slides.map((s, i) => ({
       ...s,
-      displayText: (ctaActive && i === index) ? 'Agenda tu session' : s.name,
+      displayText: (ctaActive && i === index) ? 'Agenda tu sesión' : s.name,
       displayColor: (ctaActive && i === index) ? '#c85a42' : '#111318',
     }));
     return {
@@ -177,7 +173,7 @@ class Component extends DCLogic {
       goNext: () => this.goTo(index + 1),
       dots: this.slides.map((_, i) => ({
         onClick: () => this.goTo(i),
-        style: `width:9px; height:9px; padding:0; border-radius:50%; border:none; cursor: var(--pixel-cursor); background:${i === index ? '#1b2340' : 'rgba(27,35,64,0.3)'}; transition: background 0.25s;`,
+        style: `width:9px; height:9px; padding:0; border-radius:50%; border:none; cursor:pointer; background:${i === index ? '#1b2340' : 'rgba(27,35,64,0.3)'}; transition: background 0.25s;`,
       })),
     };
   }
